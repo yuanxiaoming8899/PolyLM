@@ -106,44 +106,7 @@ pip install ." tabindex="0" role="button">
 <span class="pl-en">print</span>(<span class="pl-s">f"&gt;&gt;&gt; <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">decoded</span><span class="pl-kos">}</span></span>"</span>)
 <span class="pl-c">### results</span>
 <span class="pl-c">### Beijing is the capital of China.\nTranslate this sentence from English to Chinese.\\n北京是中华人民共和国的首都。\n ...</span></pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="from transformers import AutoModelForCausalLM, AutoTokenizer
-
-# PolyLM-1.7B
-# model_path = &quot;DAMO-NLP-MT/polylm-1.7b&quot;
-# PolyLM-13B
-model_path = &quot;DAMO-NLP-MT/polylm-13b&quot;
-# PolyLM-Multialpaca-13B
-# model_path = &quot;DAMO-NLP-MT/polylm-multialpaca-13b&quot;
-# PolyLM-Chat-13B
-# model_path = &quot;DAMO-NLP-MT/polylm-chat-13b&quot;
-
-tokenizer = AutoTokenizer.from_pretrained(model_path, legacy=False, use_fast=False)
-model = AutoModelForCausalLM.from_pretrained(model_path, device_map=&quot;auto&quot;, trust_remote_code=True)
-model.eval()
-
-# PolyLM-13B/PolyLM-1.7B
-input_doc = f&quot;Beijing is the capital of China.\nTranslate this sentence from English to Chinese.&quot;
-# PolyLM-Multialpaca-13B
-# input_doc = f&quot;Beijing is the capital of China.\nTranslate this sentence from English to Chinese.\n\n&quot;
-# PolyLM-Chat-13B
-# input_doc = f&quot;Beijing is the capital of China.\nTranslate this sentence from English to Chinese.&quot;
-# input_doc = &quot;<|user|>\n&quot; + f&quot;{input_doc}\n&quot; + &quot;<|assistant|>\n&quot;
-
-inputs = tokenizer(input_doc, return_tensors=&quot;pt&quot;)
-
-generate_ids = model.generate(
-  inputs.input_ids,
-  attention_mask=inputs.attention_mask,
-  do_sample=False,
-  num_beams=4,
-  max_length=128,
-  early_stopping=True
-)
-
-decoded = tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-print(f&quot;>>> {decoded}&quot;)
-### results
-### Beijing is the capital of China.\nTranslate this sentence from English to Chinese.\\n北京是中华人民共和国的首都。\n ..." tabindex="0" role="button">
+   
       <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
     <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
 </svg>
